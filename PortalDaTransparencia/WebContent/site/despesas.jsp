@@ -39,7 +39,7 @@
 				<li><a href="#" class="active-tab despesas-tab"><%=Language.COMMON_DESPESAS%></a></li>
 				<li><a href="<%=UrlRobot.SITE_RECEITAS%>"><%=Language.COMMON_RECEITAS%></a></li>
 				<li><a href="<%=UrlRobot.SITE_DEMAIS%>"><%=Language.COMMON_DEMAIS_DEMONSTRATIVOS%></a></li>
-				<li><a href="<%=UrlRobot.ADMIN %>"><%=Language.COMMON_ADMIN%></a></li>
+				<li><a href="<%=UrlRobot.ADMIN%>"><%=Language.COMMON_ADMIN%></a></li>
 			</ul>
 			<!-- end tabs -->
 
@@ -48,7 +48,7 @@
 	</div>
 	<!-- end full-width -->
 
-<!-- MAIN CONTENT -->
+	<!-- MAIN CONTENT -->
 	<div id="content">
 
 		<div class="page-full-width cf">
@@ -70,6 +70,13 @@
 
 
 			<div class="side-content fr">
+				<form action="#" method="POST" id="search-form" class="fr">
+					<fieldset>
+						<input type="text" id="search-keyword"
+							class="round button dark ic-search image-right" name=""
+							placeholder="<%=Language.COMMON_SEARCH %>" /> <input type="hidden" value="SUBMIT" />
+					</fieldset>
+				</form>
 
 				<div class="content-module">
 
@@ -81,11 +88,7 @@
 					<!-- end content-module-heading -->
 
 
-					<div class="content-module-main">
-
-						Dados das Despesas
-
-					</div>
+					<div class="content-module-main">Dados das Despesas</div>
 					<!-- end content-module-main -->
 
 				</div>

@@ -27,5 +27,6 @@ public class PT_BR extends Language {
 		Language.COMMON_INICIO = "Inicio";
 		Language.COMMOM_LEGAL_ADVISER = "As informações existentes neste site reproduz os dados financeiros e contábeis das entidades aqui dispostas, o acesso a todas estas informações é livre e gratuito, sendo de responsabilidade do usuário de como dispor, usar, compartilhar e ou divulgar os dados aqui obtidos. O uso impróprio e ou indevido será tratado conforme a Legislação em vigor.";
 		Language.COMMON_ADMIN = "Administração";
+		Language.COMMON_SEARCH = "Pesquisar...";
 	}
 }

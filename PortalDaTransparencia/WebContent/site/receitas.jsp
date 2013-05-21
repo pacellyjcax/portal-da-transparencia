@@ -39,12 +39,12 @@
 				<li><a href="<%=UrlRobot.SITE_DESPESAS%>"><%=Language.COMMON_DESPESAS%></a></li>
 				<li><a href="#" class="active-tab receitas-tab"><%=Language.COMMON_RECEITAS%></a></li>
 				<li><a href="<%=UrlRobot.SITE_DEMAIS%>"><%=Language.COMMON_DEMAIS_DEMONSTRATIVOS%></a></li>
-				<li><a href="<%=UrlRobot.ADMIN %>"><%=Language.COMMON_ADMIN%></a></li>
+				<li><a href="<%=UrlRobot.ADMIN%>"><%=Language.COMMON_ADMIN%></a></li>
 			</ul>
 			<!-- end tabs -->
 
-			<jsp:include page="../layouts/logoFrontEnd.jsp"/>
-			
+			<jsp:include page="../layouts/logoFrontEnd.jsp" />
+
 		</div>
 	</div>
 	<!-- end full-width -->
@@ -71,8 +71,19 @@
 
 
 			<div class="side-content fr">
+				
+					<form action="#" method="POST" id="search-form" class="fr">
+						<fieldset>
+							<input type="text" id="search-keyword"
+								class="round button dark ic-search image-right" name=""
+								placeholder="<%=Language.COMMON_SEARCH %>" /> <input type="hidden" value="SUBMIT" />
+						</fieldset>
+					</form>
+				
+
 
 				<div class="content-module">
+
 
 					<div class="content-module-heading cf">
 						<h3 class="fl">Receitas</h3>
@@ -82,11 +93,7 @@
 					<!-- end content-module-heading -->
 
 
-					<div class="content-module-main">
-
-						Dados das Receitas
-
-					</div>
+					<div class="content-module-main">Dados das Receitas</div>
 					<!-- end content-module-main -->
 
 				</div>

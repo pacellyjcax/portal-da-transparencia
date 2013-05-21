@@ -28,6 +28,7 @@ public class Language {
 	public static String COMMON_INICIO = "";
 	public static String COMMOM_LEGAL_ADVISER="";
 	public static String COMMON_ADMIN = "";
+	public static String COMMON_SEARCH = "";
 	
 	
 }

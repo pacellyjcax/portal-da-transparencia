@@ -773,12 +773,14 @@ div.side-content {
 }
 
 div.content-module {
+	margin-top: 50px;
 	background: white;
 	margin-bottom: 1em; /* 16/16 */
 	border: 1px solid #eeefef;
 }
 
 div.content-module-heading {
+	
 	background: #3f4551;
 	cursor: pointer;
 }
@@ -797,6 +799,7 @@ div.content-module-heading span {
 }
 
 div.content-module-main {
+	
 	padding: 1em; /* 16/16 */
 }
 

@@ -28,83 +28,86 @@
 <script src="../_assets/js/script.js"></script>
 </head>
 <body>
+	<div id="background-full-page">
+		<!-- HEADER -->
+		<div id="header-with-tabs">
 
-	<!-- HEADER -->
-	<div id="header-with-tabs">
+			<div class="page-full-width cf">
 
-		<div class="page-full-width cf">
-
-			<ul id="tabs" class="fl">
-				<li><a href="<%=UrlRobot.SITE_INDEX%>"><%=Language.COMMON_INICIO%></a></li>
-				<li><a href="#" class="active-tab despesas-tab"><%=Language.COMMON_DESPESAS%></a></li>
-				<li><a href="<%=UrlRobot.SITE_RECEITAS%>"><%=Language.COMMON_RECEITAS%></a></li>
-				<li><a href="<%=UrlRobot.SITE_DEMAIS%>"><%=Language.COMMON_DEMAIS_DEMONSTRATIVOS%></a></li>
-				<li><a href="<%=UrlRobot.ADMIN%>"><%=Language.COMMON_ADMIN%></a></li>
-			</ul>
-			<!-- end tabs -->
-
-			<jsp:include page="../layouts/logoFrontEnd.jsp" />
-		</div>
-	</div>
-	<!-- end full-width -->
-
-	<!-- MAIN CONTENT -->
-	<div id="content">
-
-		<div class="page-full-width cf">
-
-
-			<!-- side-menu -->
-			<div class="side-menu fl">
-
-				<h3><%=Language.INDEX_SIDE_MENU_TITLE%></h3>
-
-				<ul>
-					<li><a href="#">Prefeitura Municipal</a></li>
-					<li><a href="#">Câmara de Vereadores</a></li>
-					<li><a href="#">Fundo Municipal de Saúde</a></li>
-					<li><a href="#">Instituto de Previdência</a></li>
+				<ul id="tabs" class="fl">
+					<li><a href="<%=UrlRobot.SITE_INDEX%>"><%=Language.COMMON_INICIO%></a></li>
+					<li><a href="#" class="active-tab despesas-tab"><%=Language.COMMON_DESPESAS%></a></li>
+					<li><a href="<%=UrlRobot.SITE_RECEITAS%>"><%=Language.COMMON_RECEITAS%></a></li>
+					<li><a href="<%=UrlRobot.SITE_DEMAIS%>"><%=Language.COMMON_DEMAIS_DEMONSTRATIVOS%></a></li>
+					<li><a href="<%=UrlRobot.ADMIN%>"><%=Language.COMMON_ADMIN%></a></li>
 				</ul>
+				<!-- end tabs -->
+
+				<jsp:include page="../layouts/logoFrontEnd.jsp" />
 			</div>
-			<!-- end side-menu -->
-
-
-			<div class="side-content fr">
-				<form action="#" method="POST" id="search-form" class="fr">
-					<fieldset>
-						<input type="text" id="search-keyword"
-							class="round button dark ic-search image-right" name=""
-							placeholder="<%=Language.COMMON_SEARCH %>" /> <input type="hidden" value="SUBMIT" />
-					</fieldset>
-				</form>
-
-				<div class="content-module">
-
-					<div class="content-module-heading cf">
-						<h3 class="fl">Despesas</h3>
-						<span class="fr expand-collapse-text">Fechar</span> <span
-							class="fr expand-collapse-text initial-expand">Abrir</span>
-					</div>
-					<!-- end content-module-heading -->
-
-
-					<div class="content-module-main">Dados das Despesas</div>
-					<!-- end content-module-main -->
-
-				</div>
-				<!-- end content-module -->
-
-			</div>
-			<!-- end side-content -->
-
 		</div>
 		<!-- end full-width -->
 
+		<!-- MAIN CONTENT -->
+		<div id="content">
+
+			<div class="page-full-width cf">
+
+
+				<!-- side-menu -->
+				<div class="side-menu fl">
+
+					<h3><%=Language.INDEX_SIDE_MENU_TITLE%></h3>
+
+					<ul>
+						<li><a href="#">Prefeitura Municipal</a></li>
+						<li><a href="#">Câmara de Vereadores</a></li>
+						<li><a href="#">Fundo Municipal de Saúde</a></li>
+						<li><a href="#">Instituto de Previdência</a></li>
+					</ul>
+				</div>
+				<!-- end side-menu -->
+
+
+				<div class="side-content fr">
+					<form action="#" method="POST" id="search-form" class="fr">
+						<fieldset>
+							<input type="text" id="search-keyword"
+								class="round button dark ic-search image-right" name=""
+								placeholder="<%=Language.COMMON_SEARCH%>" /> <input
+								type="hidden" value="SUBMIT" />
+						</fieldset>
+					</form>
+
+					<div class="content-module">
+
+						<div class="content-module-heading cf">
+							<h3 class="fl">Despesas</h3>
+							<span class="fr expand-collapse-text">Fechar</span> <span
+								class="fr expand-collapse-text initial-expand">Abrir</span>
+						</div>
+						<!-- end content-module-heading -->
+
+
+						<div class="content-module-main">Dados das Despesas</div>
+						<!-- end content-module-main -->
+
+					</div>
+					<!-- end content-module -->
+
+				</div>
+				<!-- end side-content -->
+
+			</div>
+			<!-- end full-width -->
+
+		</div>
+		<!-- end content -->
+
+
+		<jsp:include page="../layouts/footer.jsp" />
 	</div>
-	<!-- end content -->
-
-
-	<jsp:include page="../layouts/footer.jsp" />
+	<!-- end fullbackground -->
 
 </body>
 </html>

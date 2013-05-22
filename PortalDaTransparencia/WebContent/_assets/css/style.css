@@ -1,7 +1,5 @@
 /* ---------- RESET ---------- */
-/* ---------- Based upon 'reset.css' in the 
-Yahoo! User Interface Library: 
-http://developer.yahoo.com/yui ---------- */
+/* ---------- Based on 'reset.css' in the Yahoo! User Interface Library: http://developer.yahoo.com/yui ---------- */
 *,html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,label,fieldset,input,p,blockquote,th,td
 	{
 	margin: 0;
@@ -89,6 +87,7 @@ p {
 .fr {
 	float: right;
 }
+
 .pc {
 	position: center;
 }
@@ -150,7 +149,16 @@ cite {
 }
 
 /* ---------- TYPOGRAPHY ---------- */
-body,form {
+body {
+	font-family: "Droid Sans", Helvetica, Arial, sans-serif;
+	line-height: 1.125em; /* 18/16 */
+	height: 100%;
+	
+	background: url(../images/body_bg_default.jpg) repeat-x top;
+	position: relative;
+}
+
+form {
 	font-family: "Droid Sans", Helvetica, Arial, sans-serif;
 	line-height: 1.125em; /* 18/16 */
 }
@@ -594,16 +602,15 @@ a#company-branding img {
 }
 
 a#company-branding-big img {
-	width:100%;
+	width: 100%;
 }
 
 a#company-branding-small img {
 	height: 45px;
 }
-a#company-branding-footer img {
-	width:5%;
 
-	
+a#company-branding-footer img {
+	width: 5%;
 }
 
 /* ---------- TABS ---------- */
@@ -617,8 +624,9 @@ ul#tabs li {
 
 ul#tabs li a {
 	border: 1px solid #eeefef;
+	border-radius:0.8em 0.8em 0 0;
 	border-bottom: none;
-	padding: 1.666em 0.833em; /* 20/12 10/12 */
+	padding: 1.666em 0.833em;
 	margin: 0 0.416em -1px 0;
 	display: block;
 	color: #9498a1;
@@ -626,24 +634,28 @@ ul#tabs li a {
 
 ul#tabs li a:hover {
 	color: orange;
+	
 }
 
 ul#tabs li a.receitas-tab {
 	background: transparent url('../images/iconReceitas.png') no-repeat
 		0.833em center /* 10/12 */;
 	padding-left: 3em; /* 36/12 */
+	border-radius:0.8em 0.8em 0 0;
 }
 
 ul#tabs li a.despesas-tab {
 	background: transparent url('../images/iconDespesas.png') no-repeat
 		0.833em center /* 10/12 */;
 	padding-left: 3em; /* 36/12 */
+	border-radius:0.8em 0.8em 0 0;
 }
 
 ul#tabs li a.demais-tab {
 	background: transparent url('../images/iconDemaisDemonstrativos.png')
 		no-repeat 0.833em center /* 10/12 */;
 	padding-left: 3em; /* 36/12 */
+	border-radius:0.8em 0.8em 0 0;
 }
 
 ul#tabs li a.active-tab,ul#tabs li a.active-tab:hover {
@@ -731,6 +743,8 @@ div#content {
 		bottom;
 	border: 1px solid #eeefef;
 	padding: 1.875em 0; /* 30/16 */
+	border-radius:1.8em 1.8em 0 0;
+	 
 }
 
 form#login-form {
@@ -780,7 +794,6 @@ div.content-module {
 }
 
 div.content-module-heading {
-	
 	background: #3f4551;
 	cursor: pointer;
 }
@@ -799,7 +812,6 @@ div.content-module-heading span {
 }
 
 div.content-module-main {
-	
 	padding: 1em; /* 16/16 */
 }
 

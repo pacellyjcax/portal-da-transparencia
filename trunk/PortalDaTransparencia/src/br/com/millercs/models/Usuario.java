@@ -2,7 +2,7 @@ package br.com.millercs.models;
 
 import java.sql.Date;
 
-import br.com.millercs.persistence.UsuarioPersistence;
+import br.com.millercs.dao.mysql.UsuarioDAO;
 
 public class Usuario{
 	
@@ -67,7 +67,7 @@ public class Usuario{
 	}
 
 	public boolean isUsuarioValido() {
-		UsuarioPersistence up = new UsuarioPersistence();
+		UsuarioDAO up = new UsuarioDAO();
 		Usuario usuario = up.getUsuario(this);
 		if(usuario == null){
 			return false;

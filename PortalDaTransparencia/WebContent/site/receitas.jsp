@@ -1,4 +1,4 @@
-<%@page import="br.com.millercs.persistence.EntidadePersistence"%>
+<%@page import="br.com.millercs.dao.mysql.EntidadeDAO"%>
 <%@page import="br.com.millercs.models.Entidade"%>
 <%@page import="br.com.millercs.system.Config"%>
 <%@page import="br.com.millercs.system.UrlRobot"%>

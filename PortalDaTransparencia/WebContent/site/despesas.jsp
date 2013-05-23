@@ -1,8 +1,11 @@
-<%@page import="br.com.millercs.persistence.EntidadePersistence"%>
+<%@page import="br.com.millercs.dao.mysql.EntidadeDAO"%>
 <%@page import="br.com.millercs.models.Entidade"%>
 <%@page import="br.com.millercs.system.Config"%>
 <%@page import="br.com.millercs.system.UrlRobot"%>
 <%@page import="br.com.millercs.language.Language"%>
+<%@page import="java.util.ArrayList"%>
+
+
 <%
 	session.invalidate();
 %>
@@ -56,14 +59,21 @@
 
 				<!-- side-menu -->
 				<div class="side-menu fl">
+				
+					<%
+										EntidadeDAO ep = new EntidadeDAO();
+													ArrayList<Entidade> entidades = ep.listEntidades();
+									%>
 
 					<h3><%=Language.INDEX_SIDE_MENU_TITLE%></h3>
 
 					<ul>
-						<li><a href="#">Prefeitura Municipal</a></li>
-						<li><a href="#">Câmara de Vereadores</a></li>
-						<li><a href="#">Fundo Municipal de Saúde</a></li>
-						<li><a href="#">Instituto de Previdência</a></li>
+						<%if(entidades != null){
+							for(int i =0; i< entidades.size(); i++){
+								Entidade e = entidades.get(i);%>
+								<li><a href="#"><%=e.getTituloDaEntidade() %></a></li>
+							<%}
+						}%>
 					</ul>
 				</div>
 				<!-- end side-menu -->

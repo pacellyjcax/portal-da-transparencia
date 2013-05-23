@@ -1,4 +1,4 @@
-package br.com.millercs.persistence;
+package br.com.millercs.dao.mysql;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,11 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import br.com.millercs.dao.interfaces.IEntidadeDAO;
 import br.com.millercs.models.Entidade;
 import br.com.millercs.system.Config;
 import br.com.millercs.system.DataConnection;
 
-public class EntidadePersistence {
+public class EntidadeDAO implements IEntidadeDAO {
 
 	public void addEntidade(Entidade entidade) throws SQLException {
 
@@ -61,16 +62,19 @@ public class EntidadePersistence {
 
 	public ArrayList<Entidade> listEntidades() {
 
-		ArrayList<Entidade> dadosDeRetorno = new ArrayList<>();
+		ArrayList<Entidade> dadosDeRetorno = null;
 
 		try {
+			
 			DataConnection dataConnection = new DataConnection();
 
-			String sql = "select * from " + Config.getBdName() + ".entidades'";
+			String sql = "select * from entidades";
 
 			ResultSet rs = dataConnection.getResultSet(sql);
 
 			if (rs != null) {
+				
+				dadosDeRetorno = new ArrayList<Entidade>();
 				
 				while (rs.next()) {
 					int id = rs.getInt("id");
@@ -83,12 +87,12 @@ public class EntidadePersistence {
 
 			dataConnection.closeConnection();
 			rs.close();
-			return dadosDeRetorno;
+
 
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
-		return null;
+		return dadosDeRetorno;
 		
 
 	}

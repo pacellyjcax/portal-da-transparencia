@@ -4,6 +4,10 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <!-- Configuração do listener -->
+	<listener>
+		<listener-class>br.com.millercs.servlets.ContextListenerServlet</listener-class>
+	</listener>
   <filter>
     <filter-name>controllerFilter</filter-name>
     <filter-class>br.com.millercs.filters.ControllerFilter</filter-class>

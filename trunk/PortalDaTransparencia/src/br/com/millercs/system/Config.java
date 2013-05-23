@@ -14,14 +14,7 @@ public class Config {
 	private static String fullCompanySite = "http://www.millercs.com.br";
 	
 	
-	private static String bdServerName = "localhost";
-	private static String bdServerPort = "3306";
-	private static String bdName = "transparenciasvs";
-	private static String bdUrl = "jdbc:mysql://" + bdServerName + ":" + bdServerPort+ "/" + bdName;
-	private static String bdUsername = "pacelly";
-	private static String bdPassword = "5865889093";
-
-
+	
 	
 
 	public static String getFullSystemName() {
@@ -71,55 +64,6 @@ public class Config {
 	public static void setFullCompanySite(String fullCompanySite) {
 		Config.fullCompanySite = fullCompanySite;
 	}
-
-	public static String getBdServerName() {
-		return bdServerName;
-	}
-
-	public static void setBdServerName(String bdServerName) {
-		Config.bdServerName = bdServerName;
-	}
-
-	public static String getBdServerPort() {
-		return bdServerPort;
-	}
-
-	public static void setBdServerPort(String bdServerPort) {
-		Config.bdServerPort = bdServerPort;
-	}
-
-	public static String getBdName() {
-		return bdName;
-	}
-
-	public static void setBdName(String bdName) {
-		Config.bdName = bdName;
-	}
-
-	public static String getBdUrl() {
-		return bdUrl;
-	}
-
-	public static void setBdUrl(String bdUrl) {
-		Config.bdUrl = bdUrl;
-	}
-
-	public static String getBdUsername() {
-		return bdUsername;
-	}
-
-	public static void setBdUsername(String bdUsername) {
-		Config.bdUsername = bdUsername;
-	}
-
-	public static String getBdPassword() {
-		return bdPassword;
-	}
-
-	public static void setBdPassword(String bdPassword) {
-		Config.bdPassword = bdPassword;
-	}
-
 	
 
 }

@@ -1,60 +1,55 @@
 package br.com.millercs.dao.mysql;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
+import javax.sql.DataSource;
+
+import br.com.millercs.dao.ConnectionPool;
 import br.com.millercs.dao.interfaces.IAmbitoDAO;
-import br.com.millercs.models.Integer;
-import br.com.millercs.system.Config;
-import br.com.millercs.system.DataConnection;
 
 public class AmbitoDAO implements IAmbitoDAO {
-	
-	public void addAmbito(Integer ambito)throws SQLException{
 
-		DataConnection dataConnection = new DataConnection();
-		Connection connection = dataConnection.getConnection();
-		
-		String sql = "insert into "+Config.getBdName()+".ambitos values ('"+ambito.getTituloDoAmbito()+"')";
-		
-		Statement s = connection.createStatement();
-		s.executeUpdate(sql);
-		
-		connection.close();
-		s.close();
-	}	
+	private DataSource dataSource = null;
 
-	public Integer getAmbitoByID(int id){
-		
-		Integer retorno = null;
+	public AmbitoDAO() {
+		ConnectionPool connectionPool = ConnectionPool.getConnectionPool(); 
+		this.dataSource = connectionPool.getDataSource();
+	}
+	public String getAmbitoByID(int id) {
+
+		String dadosDeRetorno = null;
 		
 		try {
-			DataConnection dataConnection = new DataConnection();
-			Connection connection = dataConnection.getConnection();
 			
+			Connection connection = dataSource.getConnection();
+
+			connection.setAutoCommit(false);
+
+			String sql = "select * from ambitos where id = ?";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, String.valueOf(id));
+			ps.executeUpdate();
 			
-			String sql = "select * from "+Config.getBdName()+".Ambito where id = '"+id+"'";
+			connection.setAutoCommit(true);
 			
+			ResultSet rs = ps.getResultSet();
+
+			if (rs.next()) {
 				
-			ResultSet rs = dataConnection.getResultSet(sql);
-			
-			
-			if(rs.next()){
-				int ambitoID = rs.getInt("id");
-				String titulo = rs.getString("titulo");
-				
-				retorno = new Integer(ambitoID,titulo);
+				dadosDeRetorno = rs.getString("titulo");
+
 			}
-			
+
 			connection.close();
 			rs.close();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
-		
-		return retorno;
+		}
+
+		return dadosDeRetorno;
 	}
 }

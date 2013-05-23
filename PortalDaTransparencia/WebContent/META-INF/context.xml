@@ -1,0 +1,14 @@
+﻿<Context path="/PortalDaTransparencia" docBase="PortalDaTransparencia.war" 
+		 debug="0" reloadable="true" crossContext="true">
+	<Resource 	name="jdbc/mysql" 
+				auth="Container" 
+				type="javax.sql.DataSource"               
+				maxActive="20" 
+				maxIdle="2" 
+				maxWait="5000"
+				removeAbandoned="true"               
+				username="pacelly" 
+				password="5865889093" 
+				driverClassName="org.postgresql.Driver"               
+				url="jdbc:postgresql://localhost:3306/transparenciasvs?autoReconnect=true"/>
+</Context>

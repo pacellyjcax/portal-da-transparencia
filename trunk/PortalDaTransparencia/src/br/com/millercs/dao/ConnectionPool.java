@@ -16,7 +16,7 @@ public class ConnectionPool {
 
 	//Se voce reparar, a String "jdbc/postgres" é a mesma contida no arquivo context.xml dentro da pasta META-INF
 	//A String "java:comp/env" deve ser usada por convenção da própria linguagem java
-	private static final String JNDI_RESOURCE = "java:comp/env/jdbc/postgres";
+	private static final String JNDI_RESOURCE = "java:comp/env/jdbc/mysql";
 
 	
 	private static ConnectionPool connectionPool = null;

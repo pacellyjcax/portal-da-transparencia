@@ -1,32 +1,40 @@
 package br.com.millercs.dao.mysql;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.sql.DataSource;
+
+import br.com.millercs.dao.ConnectionPool;
 import br.com.millercs.dao.interfaces.IEntidadeDAO;
 import br.com.millercs.models.Entidade;
-import br.com.millercs.system.Config;
-import br.com.millercs.system.DataConnection;
 
 public class EntidadeDAO implements IEntidadeDAO {
 
+	private DataSource dataSource = null;
+	
 	public void addEntidade(Entidade entidade) throws SQLException {
-
-		DataConnection dataConnection = new DataConnection();
-		Connection connection = dataConnection.getConnection();
-
-		String sql = "insert into " + Config.getBdName()
-				+ ".entidades values ('" + entidade.getTituloDaEntidade()
-				+ "','" + entidade.getAmbito() + "')";
-
-		Statement s = connection.createStatement();
-		s.executeUpdate(sql);
-
+		ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
+		dataSource = connectionPool.getDataSource();
+		
+		Connection connection = dataSource.getConnection();
+		
+		String sql = "insert into entidades values (?,?)";
+		connection.setAutoCommit(false);
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1,entidade.getTituloDaEntidade());
+		ps.setInt(2,entidade.getAmbito());
+		ps.executeUpdate(sql);
+		
+		connection.setAutoCommit(true);
+		
+		
+		ps.close();
 		connection.close();
-		s.close();
 	}
 
 	public Entidade getEntidade(Entidade entidade) {
@@ -34,14 +42,20 @@ public class EntidadeDAO implements IEntidadeDAO {
 		Entidade retorno = null;
 
 		try {
-			DataConnection dataConnection = new DataConnection();
-			Connection connection = dataConnection.getConnection();
+			ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
+			dataSource = connectionPool.getDataSource();
+			
+			Connection connection = dataSource.getConnection();
+			
+			
+			String sql = "select * from entidades where nome = ?";
+			
+			PreparedStatement ps = connection.prepareStatement(sql);
+			
+			ps.setString(1,entidade.getTituloDaEntidade());
+			ps.executeQuery();
 
-			String sql = "select * from " + Config.getBdName()
-					+ ".entidades where nome = '"
-					+ entidade.getTituloDaEntidade() + "'";
-
-			ResultSet rs = dataConnection.getResultSet(sql);
+			ResultSet rs = ps.getResultSet();
 
 			if (rs.next()) {
 				int id = rs.getInt("id");
@@ -50,8 +64,10 @@ public class EntidadeDAO implements IEntidadeDAO {
 				retorno = new Entidade(id, titulo, ambitoID);
 			}
 
-			connection.close();
 			rs.close();
+			ps.close();
+			connection.close();
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -66,11 +82,15 @@ public class EntidadeDAO implements IEntidadeDAO {
 
 		try {
 			
-			DataConnection dataConnection = new DataConnection();
+			ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
+			dataSource = connectionPool.getDataSource();
+			
+			Connection connection = dataSource.getConnection();
 
 			String sql = "select * from entidades";
-
-			ResultSet rs = dataConnection.getResultSet(sql);
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.executeQuery();
+			ResultSet rs = ps.getResultSet();
 
 			if (rs != null) {
 				
@@ -85,8 +105,9 @@ public class EntidadeDAO implements IEntidadeDAO {
 				}
 			}
 
-			dataConnection.closeConnection();
-			rs.close();
+
+			ps.close();
+			connection.close();
 
 
 		} catch (Exception e) {

@@ -2,7 +2,9 @@ package br.com.millercs.models;
 
 import java.sql.Date;
 
-import br.com.millercs.dao.mysql.UsuarioDAO;
+import br.com.millercs.dao.FabricaDAO;
+import br.com.millercs.dao.interfaces.IUsuarioDAO;
+import br.com.millercs.encryption.CriptoMCS;
 
 public class Usuario{
 	
@@ -14,7 +16,7 @@ public class Usuario{
 	
 	public Usuario(String login, String senha) {
 		this.login = login;
-		this.senha = senha;
+		this.senha = CriptoMCS.encrypt(senha);
 	}
 
 	public Usuario() {
@@ -50,7 +52,7 @@ public class Usuario{
 	}
 
 	public void setSenha(String senha) {
-		this.senha = senha;
+		this.senha = CriptoMCS.encrypt(senha);
 	}
 
 	public String getLogin() {
@@ -67,8 +69,8 @@ public class Usuario{
 	}
 
 	public boolean isUsuarioValido() {
-		UsuarioDAO up = new UsuarioDAO();
-		Usuario usuario = up.getUsuario(this);
+		IUsuarioDAO userDAO = FabricaDAO.createUsuarioDAO();
+		Usuario usuario = userDAO.getUsuario(this);
 		if(usuario == null){
 			return false;
 		}

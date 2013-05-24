@@ -1,4 +1,5 @@
-<%@page import="br.com.millercs.dao.mysql.EntidadeDAO"%>
+<%@page import="br.com.millercs.dao.FabricaDAO"%>
+<%@page import="br.com.millercs.dao.interfaces.IEntidadeDAO"%>
 <%@page import="br.com.millercs.models.Entidade"%>
 <%@page import="br.com.millercs.system.Config"%>
 <%@page import="br.com.millercs.system.UrlRobot"%>
@@ -59,21 +60,25 @@
 
 				<!-- side-menu -->
 				<div class="side-menu fl">
-				
+
 					<%
-										EntidadeDAO ep = new EntidadeDAO();
-													ArrayList<Entidade> entidades = ep.listEntidades();
-									%>
+						IEntidadeDAO ep = FabricaDAO.createEntidadeDAO();
+						ArrayList<Entidade> entidades = ep.listEntidades();
+					%>
 
 					<h3><%=Language.INDEX_SIDE_MENU_TITLE%></h3>
 
 					<ul>
-						<%if(entidades != null){
-							for(int i =0; i< entidades.size(); i++){
-								Entidade e = entidades.get(i);%>
-								<li><a href="#"><%=e.getTituloDaEntidade() %></a></li>
-							<%}
-						}%>
+						<%
+							if (entidades != null) {
+								for (int i = 0; i < entidades.size(); i++) {
+									Entidade e = entidades.get(i);
+						%>
+						<li><a href="#"><%=e.getTituloDaEntidade()%></a></li>
+						<%
+							}
+							} 
+						%>
 					</ul>
 				</div>
 				<!-- end side-menu -->

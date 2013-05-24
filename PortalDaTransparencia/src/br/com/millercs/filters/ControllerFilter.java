@@ -11,7 +11,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import br.com.millercs.encryption.CriptoMCS;
 import br.com.millercs.models.Usuario;
 
 
@@ -34,7 +33,7 @@ public class ControllerFilter implements Filter {
     		String senha = request.getParameter("password");
     		
     		if(login != null && senha != null){
-    			Usuario usuario = new Usuario(login,CriptoMCS.encrypt(senha));
+    			Usuario usuario = new Usuario(login,senha);
     			boolean verif = usuario.isUsuarioValido();
 
     			if(verif){

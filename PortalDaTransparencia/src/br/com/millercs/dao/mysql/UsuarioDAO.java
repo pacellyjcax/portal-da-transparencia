@@ -1,59 +1,73 @@
 package br.com.millercs.dao.mysql;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
+import javax.sql.DataSource;
+
+import br.com.millercs.dao.ConnectionPool;
 import br.com.millercs.dao.interfaces.IUsuarioDAO;
 import br.com.millercs.models.Usuario;
-import br.com.millercs.system.Config;
-import br.com.millercs.system.DataConnection;
 
 public class UsuarioDAO implements IUsuarioDAO{
 	
+	private DataSource dataSource = null;
+	
 	public void addUsuario(Usuario usuario)throws SQLException{
 
-		DataConnection dataConnection = new DataConnection();
-		Connection connection = dataConnection.getConnection();
+		ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
+		dataSource = connectionPool.getDataSource();
 		
-		String sql = "insert into "+Config.getBdName()+".users values ('"+usuario.getLogin()+"','"+usuario.getSenha()+"')";
+		Connection connection = dataSource.getConnection();
 		
-		Statement s = connection.createStatement();
-		s.executeUpdate(sql);
+		String sql = "insert into users values (?,?)";
 		
+		connection.setAutoCommit(false);
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, usuario.getLogin());
+		ps.setString(2, usuario.getSenha());
+		ps.executeUpdate(sql);
+		
+		connection.setAutoCommit(true);
+		ps.close();
 		connection.close();
-		s.close();
 	}	
 
 	public Usuario getUsuario(Usuario usuario){
 		
-		Usuario retorno = null;
+		Usuario usuarioParaRetorno = null;
 		
 		try {
-			DataConnection dataConnection = new DataConnection();
-			Connection connection = dataConnection.getConnection();
+			ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
+			dataSource = connectionPool.getDataSource();
 			
+			Connection connection = dataSource.getConnection();
 			
-			String sql = "select * from "+Config.getBdName()+".users where login = '"+usuario.getLogin() + "' and password = '"+usuario.getSenha()+"'";
+
+			String sql = "select * from users where login = ? and password = ?";
 			
-				
-			ResultSet rs = dataConnection.getResultSet(sql);
-			
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, usuario.getLogin());
+			ps.setString(2, usuario.getSenha());
+			ps.executeQuery();
+			ResultSet rs = ps.getResultSet();		
 			
 			if(rs.next()){
 				String login = rs.getString("login");
 				String senha = rs.getString("password");
-				retorno = new Usuario(login,senha);
+				usuarioParaRetorno = new Usuario(login,senha);
 			}
-			
-			connection.close();
+						
 			rs.close();
+			ps.close();
+			connection.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
 		
-		return retorno;
+		return usuarioParaRetorno;
 	}	
 }

@@ -37,7 +37,7 @@
 		<div id="header-with-tabs">
 
 			<div class="page-full-width cf">
-				
+
 				<jsp:include page="<%=UrlRobot.SITE_COMMON_TABS%>">
 					<jsp:param value="despesas" name="activePage" />
 				</jsp:include>
@@ -70,7 +70,7 @@
 								for (int i = 0; i < entidades.size(); i++) {
 									Entidade e = entidades.get(i);
 						%>
-						<li><a href="#"><%=e.getTituloDaEntidade()%></a></li>
+						<li><a href="do.AbrirDespesa?e=<%=e.getId()%>"><%=e.getTituloDaEntidade()%></a></li>
 						<%
 							}
 							}
@@ -81,6 +81,10 @@
 
 
 				<div class="side-content fr">
+
+					<%
+						if (request.getParameter("show") != null) {
+					%>
 					<form action="#" method="POST" id="search-form" class="fr">
 						<fieldset>
 							<input type="text" id="search-keyword"
@@ -93,16 +97,24 @@
 					<div class="content-module">
 
 						<div class="content-module-heading cf">
-							<h3 class="fl">Despesas</h3>
-							<span class="fr expand-collapse-text">Fechar</span> <span
-								class="fr expand-collapse-text initial-expand">Abrir</span>
+							<h3 class="fl"><%=Language.COMMON_DESPESAS %></h3>
+							<span class="fr expand-collapse-text"><%=Language.COMMON_CLOSE %></span> <span
+								class="fr expand-collapse-text initial-expand"><%=Language.COMMON_OPEN %></span>
 						</div>
 						<!-- end content-module-heading -->
 
 
 						<div class="content-module-main">Dados das Despesas</div>
 						<!-- end content-module-main -->
-
+						<%
+							} else {
+						%>
+						<p class="information-box">
+							<strong><%=Language.DESPESAS_INFO_NOT_HAVE_DESPESAS %></strong>
+							<%
+								}
+							%>
+						
 					</div>
 					<!-- end content-module -->
 

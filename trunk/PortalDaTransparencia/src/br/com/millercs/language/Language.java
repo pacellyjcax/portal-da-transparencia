@@ -29,6 +29,11 @@ public class Language {
 	public static String COMMOM_LEGAL_ADVISER="";
 	public static String COMMON_ADMIN = "";
 	public static String COMMON_SEARCH = "";
+	public static String COMMON_OPEN;
+	public static String COMMON_CLOSE;
+	
+	public static String DESPESAS_INFO_NOT_HAVE_DESPESAS;
+	
 		
 	
 }

@@ -1,11 +1,9 @@
 package br.com.millercs.system;
 
-import br.com.millercs.language.Language;
-import br.com.millercs.language.PT_BR;
 
 public class Config {
 	
-	public static Language language = new PT_BR();
+	
 	private static String logoAdmin = "../_assets/images/logoAdmin.png";
 	private static String logoFrontEnd = "../_assets/images/logo.png";
 	private static String fullSystemName = "Portal Da Transparencia";

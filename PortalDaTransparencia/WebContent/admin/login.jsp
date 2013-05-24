@@ -30,7 +30,8 @@
 
 		<div class="page-full-width">
 
-			<a href="<%=UrlRobot.SITE_INDEX %>" class="round button dark ic-left-arrow image-left "><%=Language.LOGIN_RETURN_TO_SITE%></a>
+			<a href="../site/<%=UrlRobot.SITE_INDEX%>"
+				class="round button dark ic-left-arrow image-left "><%=Language.LOGIN_RETURN_TO_SITE%></a>
 			<a href="#" id="company-branding-small" class="fr"><img
 				src=<%=Config.getLogoAdmin()%> alt=<%=Config.getShortCompanyName()%> /></a>
 		</div>
@@ -40,7 +41,7 @@
 	<!-- end top-bar -->
 
 
-<!-- HEADER -->
+	<!-- HEADER -->
 	<div id="header" align="center">
 
 		<div class="page-full-width cf">
@@ -52,14 +53,14 @@
 
 			</div>
 
-			
+
 
 		</div>
 		<!-- end full-width -->
 
 	</div>
 	<!-- end header -->
-	
+
 
 
 
@@ -109,7 +110,7 @@
 
 
 
-	<jsp:include page="../layouts/footer.jsp"/>
+	<jsp:include page="../layouts/footer.jsp" />
 
 </body>
 </html>

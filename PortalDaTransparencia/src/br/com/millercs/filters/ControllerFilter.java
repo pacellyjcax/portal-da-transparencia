@@ -34,9 +34,8 @@ public class ControllerFilter implements Filter {
     		
     		if(login != null && senha != null){
     			Usuario usuario = new Usuario(login,senha);
-    			boolean verif = usuario.isUsuarioValido();
-
-    			if(verif){
+    			
+    			if(usuario.isUsuarioValido()){
     				session.setAttribute("logado", usuario);    				
     				chain.doFilter(request, response);
     				

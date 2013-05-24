@@ -21,7 +21,7 @@
 <!-- CSS -->
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'
 	rel='stylesheet'>
-<link rel="stylesheet" href="../_assets/css/style.css">
+<link rel="stylesheet" href=<%=UrlRobot.SITE_CSS%>>
 
 <!-- Mobile Devices Check -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,15 +37,11 @@
 		<div id="header-with-tabs">
 
 			<div class="page-full-width cf">
+				
+				<jsp:include page="<%=UrlRobot.SITE_COMMON_TABS%>">
+					<jsp:param value="despesas" name="activePage" />
+				</jsp:include>
 
-				<ul id="tabs" class="fl">
-					<li><a href="<%=UrlRobot.SITE_INDEX%>"><%=Language.COMMON_INICIO%></a></li>
-					<li><a href="#" class="active-tab despesas-tab"><%=Language.COMMON_DESPESAS%></a></li>
-					<li><a href="<%=UrlRobot.SITE_RECEITAS%>"><%=Language.COMMON_RECEITAS%></a></li>
-					<li><a href="<%=UrlRobot.SITE_DEMAIS%>"><%=Language.COMMON_DEMAIS_DEMONSTRATIVOS%></a></li>
-					<li><a href="<%=UrlRobot.ADMIN%>"><%=Language.COMMON_ADMIN%></a></li>
-				</ul>
-				<!-- end tabs -->
 
 				<jsp:include page="../layouts/logoFrontEnd.jsp" />
 			</div>
@@ -77,7 +73,7 @@
 						<li><a href="#"><%=e.getTituloDaEntidade()%></a></li>
 						<%
 							}
-							} 
+							}
 						%>
 					</ul>
 				</div>

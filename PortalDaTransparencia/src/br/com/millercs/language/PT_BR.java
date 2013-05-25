@@ -30,7 +30,9 @@ public class PT_BR extends Language {
 		Language.COMMON_SEARCH = "Pesquisar...";
 		Language.COMMON_OPEN = "Abrir";
 		Language.COMMON_CLOSE = "Fechar";
-		
+
 		Language.DESPESAS_INFO_NOT_HAVE_DESPESAS = "Nenhuma Despesa a Ser Exibida para a Entidade Atual !";
+		Language.DESPESAS_LIST_ITENS_HEADER = "Número Do Empenho e  Nome Do Credor";
+		
 	}
 }

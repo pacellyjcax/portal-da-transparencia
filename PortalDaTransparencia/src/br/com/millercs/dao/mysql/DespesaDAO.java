@@ -37,6 +37,7 @@ public class DespesaDAO implements IDespesaDAO {
 				dadosDeRetorno = new ArrayList<Despesa>();
 
 				while (rs.next()) {
+					
 					int idDaDespesa = rs.getInt("idDespesa");
 					String numeroDoEmpenho = rs.getString("numeroDoEmpenho");
 					String tipoDoEmpenho = rs.getString("tipoDoEmpenho");

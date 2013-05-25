@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.millercs.command.ICommand;
+import br.com.millercs.command.despesas.AbrirDespesasCommand;
 import br.com.millercs.language.Language;
 
 /**
@@ -23,28 +24,29 @@ public class ServletController extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		map = new HashMap<String, ICommand>();
+		map.put("AbrirDespesas", new AbrirDespesasCommand());
 		
 		
 	}
 
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String acao = request.getParameter("acao");
+		String action = request.getParameter("action");
 
-		ICommand command = this.find(acao);
+		ICommand command = this.find(action);
 		String url = command.execute(request);
 
 		RequestDispatcher d = request.getRequestDispatcher(url);
 		d.forward(request, response);
 	}
 
-	private ICommand find(String acao) throws ServletException {
+	private ICommand find(String action) throws ServletException {
 		// Verifica se foi informada alguma pagina que nao esta mapeada no
 		// HashMap
-		if (!map.containsKey(acao)) {
-			throw new ServletException(Language.SYSTEM_PAGE_NOT_FOUND + acao);
+		if (!map.containsKey(action)) {
+			throw new ServletException(Language.SYSTEM_PAGE_NOT_FOUND + action );
 		}
-		return (ICommand) map.get(acao);
+		return (ICommand) map.get(action);
 	}
 
 	protected void serviceOLD(HttpServletRequest request,

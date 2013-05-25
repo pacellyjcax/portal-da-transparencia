@@ -23,7 +23,7 @@
     <description></description>
     <display-name>ServletController</display-name>
     <servlet-name>ServletController</servlet-name>
-    <servlet-class>br.com.millercs.servlets.ControllerServlet</servlet-class>
+    <servlet-class>br.com.millercs.servlets.ServletController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ServletController</servlet-name>

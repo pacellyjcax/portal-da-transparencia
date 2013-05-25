@@ -20,20 +20,18 @@ public class Language {
 	public static String SYSTEM_ALL_RIGHTS_RESERVED = "";
 
 	public static String INDEX_MAIN_TITLE = "";
-	public static String INDEX_SIDE_MENU_TITLE= "";
-	
-	public static String COMMON_DESPESAS= "";
-	public static String COMMON_RECEITAS= "";
+	public static String INDEX_SIDE_MENU_TITLE = "";
+
+	public static String COMMON_DESPESAS = "";
+	public static String COMMON_RECEITAS = "";
 	public static String COMMON_DEMAIS_DEMONSTRATIVOS = "";
 	public static String COMMON_INICIO = "";
-	public static String COMMOM_LEGAL_ADVISER="";
+	public static String COMMOM_LEGAL_ADVISER = "";
 	public static String COMMON_ADMIN = "";
 	public static String COMMON_SEARCH = "";
-	public static String COMMON_OPEN;
-	public static String COMMON_CLOSE;
-	
-	public static String DESPESAS_INFO_NOT_HAVE_DESPESAS;
-	
-		
-	
+	public static String COMMON_OPEN = "";
+	public static String COMMON_CLOSE = "";
+
+	public static String DESPESAS_INFO_NOT_HAVE_DESPESAS = "";
+
 }

@@ -59,7 +59,7 @@
 
 					<%
 						IEntidadeDAO ep = FabricaDAO.createEntidadeDAO();
-						ArrayList<Entidade> entidades = ep.listEntidades();
+									ArrayList<Entidade> entidades = ep.getAllEntidades();
 					%>
 
 					<h3><%=Language.INDEX_SIDE_MENU_TITLE%></h3>
@@ -70,7 +70,7 @@
 								for (int i = 0; i < entidades.size(); i++) {
 									Entidade e = entidades.get(i);
 						%>
-						<li><a href="do.AbrirDespesa?e=<%=e.getId()%>"><%=e.getTituloDaEntidade()%></a></li>
+						<li><a href="controller.do?action=AbrirDespesas&e=<%=e.getId()%>"><%=e.getTituloDaEntidade()%></a></li>
 						<%
 							}
 							}

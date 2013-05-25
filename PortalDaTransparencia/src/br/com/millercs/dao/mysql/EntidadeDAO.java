@@ -76,7 +76,7 @@ public class EntidadeDAO implements IEntidadeDAO {
 		return retorno;
 	}
 
-	public ArrayList<Entidade> listEntidades() {
+	public ArrayList<Entidade> getAllEntidades() {
 
 		ArrayList<Entidade> dadosDeRetorno = null;
 

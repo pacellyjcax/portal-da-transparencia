@@ -11,5 +11,5 @@ public interface IEntidadeDAO {
 
 	public Entidade getEntidade(Entidade entidade) ;
 
-	public ArrayList<Entidade> listEntidades() ;
+	public ArrayList<Entidade> getAllEntidades() ;
 }

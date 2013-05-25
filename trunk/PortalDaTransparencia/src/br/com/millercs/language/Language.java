@@ -33,5 +33,6 @@ public class Language {
 	public static String COMMON_CLOSE = "";
 
 	public static String DESPESAS_INFO_NOT_HAVE_DESPESAS = "";
+	public static String DESPESAS_LIST_ITENS_HEADER="";
 
 }

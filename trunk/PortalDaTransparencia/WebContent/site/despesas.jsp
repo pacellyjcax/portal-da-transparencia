@@ -1,6 +1,8 @@
 <%@page import="br.com.millercs.dao.FabricaDAO"%>
 <%@page import="br.com.millercs.dao.interfaces.IEntidadeDAO"%>
 <%@page import="br.com.millercs.models.Entidade"%>
+<%@page import="br.com.millercs.models.Despesa"%>
+<%@page import="br.com.millercs.system.ListSource"%>
 <%@page import="br.com.millercs.system.Config"%>
 <%@page import="br.com.millercs.system.UrlRobot"%>
 <%@page import="br.com.millercs.language.Language"%>
@@ -23,6 +25,9 @@
 	rel='stylesheet'>
 <link rel="stylesheet" href=<%=UrlRobot.SITE_CSS%>>
 
+<link rel="stylesheet" href="../_assets/css/jQuery.css" />
+
+
 <!-- Mobile Devices Check -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -30,6 +35,14 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="../_assets/js/script.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+	$(function() {
+		$("#accordion").accordion();
+
+	});
+</script>
 </head>
 <body>
 	<div id="background-full-page">
@@ -59,7 +72,7 @@
 
 					<%
 						IEntidadeDAO ep = FabricaDAO.createEntidadeDAO();
-									ArrayList<Entidade> entidades = ep.getAllEntidades();
+						ArrayList<Entidade> entidades = ep.getAllEntidades();
 					%>
 
 					<h3><%=Language.INDEX_SIDE_MENU_TITLE%></h3>
@@ -70,7 +83,8 @@
 								for (int i = 0; i < entidades.size(); i++) {
 									Entidade e = entidades.get(i);
 						%>
-						<li><a href="controller.do?action=AbrirDespesas&e=<%=e.getId()%>"><%=e.getTituloDaEntidade()%></a></li>
+						<li><a
+							href="controller.do?action=AbrirDespesas&e=<%=e.getId()%>"><%=e.getTituloDaEntidade()%></a></li>
 						<%
 							}
 							}
@@ -96,41 +110,66 @@
 
 					<div class="content-module">
 
-						<div class="content-module-heading cf">
-							<h3 class="fl"><%=Language.COMMON_DESPESAS %></h3>
-							<span class="fr expand-collapse-text"><%=Language.COMMON_CLOSE %></span> <span
-								class="fr expand-collapse-text initial-expand"><%=Language.COMMON_OPEN %></span>
-						</div>
+
 						<!-- end content-module-heading -->
 
+						<div class="content-module-heading cf">
+							<h3 class="fl"><%=Language.DESPESAS_LIST_ITENS_HEADER%></h3>
 
-						<div class="content-module-main">Dados das Despesas</div>
-						<!-- end content-module-main -->
-						<%
-							} else {
-						%>
-						<p class="information-box">
-							<strong><%=Language.DESPESAS_INFO_NOT_HAVE_DESPESAS %></strong>
-							<%
-								}
-							%>
-						
+							<span class="fr expand-collapse-text"><%=Language.COMMON_CLOSE%></span>
+							<span class="fr expand-collapse-text initial-expand"><%=Language.COMMON_OPEN%></span>
+						</div>
+						<div class="content-module-main">
+							<div id="accordion" disable="true">
+								<%
+									for (Despesa despesa : (ArrayList<Despesa>) ListSource
+												.getList("listDespesas")) {
+								%>
+									<strong><%=despesa.getNumeroDoEmpenho()%> - <%=despesa.getNomeDoCredor()%>
+									</strong>
+								
+								<div>
+									<p>
+									<ul>
+										<li><%="Data Do Empenho: " + despesa.getDataDoEmpenho()%></li>
+										<li><%="Tipo Do Empenho: "+despesa.getTipoDoEmpenho()%></li>
+										<li><%="Valor Da Despesa: R$ " + despesa.getValorDaDespesa()%></li>
+										<li><%="Valor Liquidado: R$ " + despesa.getValorLiquidado()%></li>
+										<li><%="Data Da Liquidacao: "
+							+ despesa.getDataDaLiquidacao()%></li>
+										<li><%="Descricao Da Despesa: "
+							+ despesa.getDescricaoDaDespesa()%></li>							 
+									</ul>
+									</p>
+								</div>
+								<%
+									}
+								
+									} else {
+								%>
+								<p class="information-box">
+									<strong><%=Language.DESPESAS_INFO_NOT_HAVE_DESPESAS%></strong>
+									<%
+										}
+									%>
+								
+							</div>
+							<!-- end content-module -->
+
+						</div>
+						<!-- end side-content -->
+
 					</div>
-					<!-- end content-module -->
+					<!-- end full-width -->
 
 				</div>
-				<!-- end side-content -->
+				<!-- end content -->
+				</div>
+				</div>
 
+
+				<jsp:include page="../layouts/footer.jsp" />
 			</div>
-			<!-- end full-width -->
-
-		</div>
-		<!-- end content -->
-
-
-		<jsp:include page="../layouts/footer.jsp" />
-	</div>
-	<!-- end fullbackground -->
-
+			<!-- end fullbackground -->
 </body>
 </html>

@@ -22,12 +22,10 @@ public class Despesa {
 
 	private int idDaEntidade;
 
-	
-	
-	public Despesa(int idDaDespesa,String numeroDoEmpenho, String tipoDoEmpenho,
-			String dataDoEmpenho, double valorDaDespesa, double valorLiquidado,
-			String dataDaLiquidacao, String nomeDoCredor,
-			String descricaoDaDespesa, int idDaEntidade) {
+	public Despesa(int idDaDespesa, String numeroDoEmpenho,
+			String tipoDoEmpenho, String dataDoEmpenho, double valorDaDespesa,
+			double valorLiquidado, String dataDaLiquidacao,
+			String nomeDoCredor, String descricaoDaDespesa, int idDaEntidade) {
 		this.idDaDespesa = idDaDespesa;
 		this.numeroDoEmpenho = numeroDoEmpenho;
 		this.tipoDoEmpenho = tipoDoEmpenho;
@@ -119,8 +117,13 @@ public class Despesa {
 	public void setIdDaEntidade(int idDaEntidade) {
 		this.idDaEntidade = idDaEntidade;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+
+		return idDaDespesa + numeroDoEmpenho + tipoDoEmpenho + dataDoEmpenho
+				+ valorDaDespesa + valorLiquidado + dataDaLiquidacao
+				+ nomeDoCredor + descricaoDaDespesa + idDaEntidade;
+	}
 
 }

@@ -20,13 +20,19 @@
     <session-timeout>60</session-timeout>
   </session-config>
   <servlet>
-    <description></description>
-    <display-name>ServletController</display-name>
-    <servlet-name>ServletController</servlet-name>
-    <servlet-class>br.com.millercs.servlets.ServletController</servlet-class>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
+  
   <servlet-mapping>
-    <servlet-name>ServletController</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+  
+    <!-- 	Configuração do Primefaces -->
+	<context-param>  
+    	<param-name>primefaces.THEME</param-name>  
+    	<param-value>cupertino</param-value>  
+	</context-param>
 </web-app>

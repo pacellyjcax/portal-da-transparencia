@@ -21,8 +21,8 @@
           jmxEnabled="true"
           jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
             org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
-          username="millercs"
-          password="5966899194"
+          username="pacelly"
+          password="5865889093"
           driverClassName="com.mysql.jdbc.Driver"
           url="jdbc:mysql://localhost:3306/transparenciasvs?autoReconnect=true"/>
 </Context>

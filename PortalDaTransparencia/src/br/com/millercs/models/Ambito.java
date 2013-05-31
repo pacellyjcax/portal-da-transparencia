@@ -1,11 +1,11 @@
 package br.com.millercs.models;
 
-public class Integer {
+public class Ambito {
 
 	private int codigoDoAmbito;
 	private String tituloDoAmbito;
 
-	public Integer(int id, String titulo) {
+	public Ambito(int id, String titulo) {
 		setCodigoDoAmbito(id);
 		setTituloDoAmbito(titulo);
 	}

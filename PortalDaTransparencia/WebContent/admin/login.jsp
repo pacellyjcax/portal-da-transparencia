@@ -1,4 +1,4 @@
-<%@page import="br.com.millercs.language.Language"%>
+<%@page import="br.com.millercs.system.SystemVariables"%>
 <%@page import="br.com.millercs.system.Config"%>
 <%@page import="br.com.millercs.system.UrlRobot"%>
 <%
@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta>
-<title><%=Language.LOGIN_HEADER_TITLE%></title>
+<title><%=SystemVariables.LOGIN_HEADER_TITLE%></title>
 
 
 
@@ -31,9 +31,9 @@
 		<div class="page-full-width">
 
 			<a href="../site/<%=UrlRobot.SITE_INDEX%>"
-				class="round button dark ic-left-arrow image-left "><%=Language.LOGIN_RETURN_TO_SITE%></a>
+				class="round button dark ic-left-arrow image-left "><%=SystemVariables.LOGIN_RETURN_TO_SITE%></a>
 			<a href="#" id="company-branding-small" class="fr"><img
-				src=<%=Config.getLogoAdmin()%> alt=<%=Config.getShortCompanyName()%> /></a>
+				src=<%=Config.getLogoAdmin()%> alt=<%=Config.getCOMMON_COMPANY_SHORT_NAME()%> /></a>
 		</div>
 		<!-- end full-width -->
 
@@ -48,8 +48,8 @@
 
 			<div id="login-intro" class="fl">
 
-				<h1><%=Language.LOGIN_HEADER_TITLE%></h1>
-				<h5><%=Language.LOGIN_HEADER_DESCRIPTION%></h5>
+				<h1><%=SystemVariables.LOGIN_HEADER_TITLE%></h1>
+				<h5><%=SystemVariables.LOGIN_HEADER_DESCRIPTION%></h5>
 
 			</div>
 
@@ -72,13 +72,13 @@
 			<fieldset>
 
 				<p>
-					<label for="login-username"><%=Language.LOGIN_USERNAME_TITLE%></label>
+					<label for="login-username"><%=SystemVariables.LOGIN_USERNAME_TITLE%></label>
 					<input type="text" id="login-username" name="username"
 						class="round full-width-input" />
 				</p>
 
 				<p>
-					<label for="login-password"><%=Language.LOGIN_PASSWORD_TITLE%></label>
+					<label for="login-password"><%=SystemVariables.LOGIN_PASSWORD_TITLE%></label>
 					<input type="password" id="login-password" name="password"
 						class="round full-width-input" />
 				</p>
@@ -96,12 +96,12 @@
 
 				<input type="submit" id="submit-button"
 					class="button round blue image-right ic-right-arrow"
-					value=<%=Language.LOGIN_BUTTON%> />
+					value=<%=SystemVariables.LOGIN_BUTTON%> />
 
 			</fieldset>
 
 			<br />
-			<div class="information-box round"><%=Language.LOGIN_HELP_BOX%></div>
+			<div class="information-box round"><%=SystemVariables.LOGIN_HELP_BOX%></div>
 
 		</form>
 

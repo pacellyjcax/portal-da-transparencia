@@ -2,7 +2,7 @@
 <%@page import="br.com.millercs.models.Entidade"%>
 <%@page import="br.com.millercs.system.Config"%>
 <%@page import="br.com.millercs.system.UrlRobot"%>
-<%@page import="br.com.millercs.language.Language"%>
+<%@page import="br.com.millercs.system.SystemVariables"%>
 <%
 	session.invalidate();
 %>
@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta>
-<title><%=Language.INDEX_MAIN_TITLE%></title>
+<title><%=SystemVariables.INDEX_MAIN_TITLE%></title>
 
 <!-- CSS -->
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'
@@ -53,7 +53,7 @@
 				<!-- side-menu -->
 				<div class="side-menu fl">
 
-					<h3><%=Language.INDEX_SIDE_MENU_TITLE%></h3>
+					<h3><%=SystemVariables.INDEX_SIDE_MENU_TITLE%></h3>
 
 					<ul>
 						<li><a href="#">Prefeitura Municipal</a></li>
@@ -70,7 +70,7 @@
 						<fieldset>
 							<input type="text" id="search-keyword"
 								class="round button dark ic-search image-right" name=""
-								placeholder="<%=Language.COMMON_SEARCH%>" /> <input
+								placeholder="<%=SystemVariables.COMMON_SEARCH%>" /> <input
 								type="hidden" value="SUBMIT" />
 						</fieldset>
 					</form>

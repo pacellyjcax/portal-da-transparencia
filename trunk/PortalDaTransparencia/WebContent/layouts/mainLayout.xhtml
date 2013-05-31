@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:view contentType="text/html">
+	<h:head>
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'
+			rel='stylesheet'></link>
+		<link rel="stylesheet" href="../_assets/css/style.css"></link>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="../_assets/js/script.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<ui:insert name="pageTitle">
+			<title><h:outputText
+					value="#{systemVariablesBean.fullSystemName}" /></title>
+		</ui:insert>
+	</h:head>
+
+	<h:body>
+		<div id="background-full-page">
+			<div id="header-with-tabs">
+				<div class="page-full-width cf">
+
+					<ul id="tabs" class="fl">
+						<ui:insert name="tabIndex">
+							<li><a href="index.xhtml"><h:outputText
+										value="#{systemVariablesBean.COMMON_INICIO}" /></a></li>
+						</ui:insert>
+						<ui:insert name="tabDespesas">
+							<li><a href="despesas.xhtml"><h:outputText
+										value="#{systemVariablesBean.COMMON_DESPESAS}" /></a></li>
+						</ui:insert>
+						<ui:insert name="tabReceitas">
+							<li><a href="receitas.xhtml"><h:outputText
+										value="#{systemVariablesBean.COMMON_RECEITAS}" /></a></li>
+						</ui:insert>
+						<ui:insert name="tabDemais">
+							<li><a href="demaisDemonstrativos.xhtml"><h:outputText
+										value="#{systemVariablesBean.COMMON_DEMAIS_DEMONSTRATIVOS}" /></a></li>
+						</ui:insert>
+						<ui:insert name="tabAdmin">
+							<li><a href="../admin/root.xhtml"><h:outputText
+										value="#{systemVariablesBean.COMMON_ADMIN}" /></a></li>
+
+						</ui:insert>
+					</ul>
+					<ui:insert name="logoFrontEnd">
+						<a href="" id="company-branding" class="fr"><h:graphicImage
+								url="#{systemVariablesBean.logoFrontEnd}" /></a>
+
+					</ui:insert>
+
+
+				</div>
+			</div>
+
+			<!-- MAIN CONTENT -->
+			<div id="content">
+				<div class="page-full-width cf">
+					<ui:insert name="mainContent">
+
+					</ui:insert>
+				</div>
+			</div>
+
+			<!-- FOOTER -->
+			<div id="footer">
+				<p>
+					<a href="#{systemVariablesBean.fullCompanySite}"
+						id="company-branding-footer" class="pc cf"><img
+						src="#{systemVariablesBean.footerCompanyLogo}"
+						alt="#{systemVariablesBean.COMMON_COMPANY_FULL_NAME}" /></a> <a
+						href="#{systemVariablesBean.fullCompanySite}"><h:outputText
+							value="#{systemVariablesBean.COMMON_COMPANY_FULL_NAME}" /></a>
+				</p>
+				<p>
+					<strong>&copy; Copyright</strong>
+					<h:outputText
+						value=" - #{systemVariablesBean.SYSTEM_ALL_RIGHTS_RESERVED}" />
+				</p>
+			</div>
+
+		</div>
+	</h:body>
+</f:view>
+</html>

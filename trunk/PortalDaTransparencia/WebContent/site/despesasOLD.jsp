@@ -5,7 +5,7 @@
 <%@page import="br.com.millercs.system.ListSource"%>
 <%@page import="br.com.millercs.system.Config"%>
 <%@page import="br.com.millercs.system.UrlRobot"%>
-<%@page import="br.com.millercs.language.Language"%>
+<%@page import="br.com.millercs.system.SystemVariables"%>
 <%@page import="java.util.ArrayList"%>
 
 
@@ -18,7 +18,7 @@
 <html>
 <head>
 <meta>
-<title><%=Language.INDEX_MAIN_TITLE%></title>
+<title><%=SystemVariables.INDEX_MAIN_TITLE%></title>
 
 <!-- CSS -->
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'
@@ -72,22 +72,22 @@
 
 					<%
 						IEntidadeDAO ep = FabricaDAO.createEntidadeDAO();
-						ArrayList<Entidade> entidades = ep.getAllEntidades();
+									ArrayList<Entidade> entidades = ep.getAllEntidades();
 					%>
 
-					<h3><%=Language.INDEX_SIDE_MENU_TITLE%></h3>
+					<h3><%=SystemVariables.INDEX_SIDE_MENU_TITLE%></h3>
 
 					<ul>
 						<%
 							if (entidades != null) {
-								for (int i = 0; i < entidades.size(); i++) {
-									Entidade e = entidades.get(i);
+												for (int i = 0; i < entidades.size(); i++) {
+													Entidade e = entidades.get(i);
 						%>
 						<li><a
 							href="controller.do?action=AbrirDespesas&e=<%=e.getId()%>"><%=e.getTituloDaEntidade()%></a></li>
 						<%
 							}
-							}
+											}
 						%>
 					</ul>
 				</div>
@@ -103,7 +103,7 @@
 						<fieldset>
 							<input type="text" id="search-keyword"
 								class="round button dark ic-search image-right" name=""
-								placeholder="<%=Language.COMMON_SEARCH%>" /> <input
+								placeholder="<%=SystemVariables.COMMON_SEARCH%>" /> <input
 								type="hidden" value="SUBMIT" />
 						</fieldset>
 					</form>
@@ -114,16 +114,16 @@
 						<!-- end content-module-heading -->
 
 						<div class="content-module-heading cf">
-							<h3 class="fl"><%=Language.DESPESAS_LIST_ITENS_HEADER%></h3>
+							<h3 class="fl"><%=SystemVariables.DESPESAS_LIST_ITENS_HEADER%></h3>
 
-							<span class="fr expand-collapse-text"><%=Language.COMMON_CLOSE%></span>
-							<span class="fr expand-collapse-text initial-expand"><%=Language.COMMON_OPEN%></span>
+							<span class="fr expand-collapse-text"><%=SystemVariables.COMMON_CLOSE%></span>
+							<span class="fr expand-collapse-text initial-expand"><%=SystemVariables.COMMON_OPEN%></span>
 						</div>
 						<div class="content-module-main">
 							<div id="accordion" disable="true">
 								<%
 									for (Despesa despesa : (ArrayList<Despesa>) ListSource
-												.getList("listDespesas")) {
+																		.getList("listDespesas")) {
 								%>
 									<strong><%=despesa.getNumeroDoEmpenho()%> - <%=despesa.getNomeDoCredor()%>
 									</strong>
@@ -144,11 +144,11 @@
 								</div>
 								<%
 									}
-								
-									} else {
+														
+															} else {
 								%>
 								<p class="information-box">
-									<strong><%=Language.DESPESAS_INFO_NOT_HAVE_DESPESAS%></strong>
+									<strong><%=SystemVariables.DESPESAS_INFO_NOT_HAVE_DESPESAS%></strong>
 									<%
 										}
 									%>
